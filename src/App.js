@@ -8,6 +8,16 @@ import Register from "./pages/Register";
 
 export default function App() {
   return (
-    <Home />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<NavBar />}>
+          <Route index element={<Home />} />
+          <Route path="bookmarks" element={<Bookmarks />} />
+          <Route path="about" element={<About />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
