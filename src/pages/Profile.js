@@ -25,7 +25,7 @@ const Profile = () => {
     <>
       <title>Profile</title>
       <p>lol</p>
-      <AddCourse />
+      {/* <AddCourse /> */}
       {/* if role === 'tutor', show AddCourse option
       {isTutor ? (
                 <AddCourse />
