@@ -28,6 +28,16 @@ const Home = () => {
       setBookmarkedCourses(bookmarks.map(b => b.courseID));
     }
     fetchData();
+    
+    // process course detail
+    // for(let i = 0; i < courses.length; i++){
+    //   let course = courses[i].detail.M
+    //   // console.log("items", items)
+    //   for (const chapter in course){
+    //     let ch = course[chapter].SS
+    //     console.log("chapter", chapter, ch)
+    //   }
+    // }
     // console.log(courses)
   }, []);
 
