@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import './css/home.css';
 
 const Home = () => {
   const [courses, setCourses] = useState([]);
   const [bookmarkedCourses, setBookmarkedCourses] = useState([]);
-  const colours = ["#EDAA6C", "#EA713D", "#D83E27", "#152B53", "#1F6E8E", "#2C8B98", "#82A8A0"]
+  const colours = ["#EDAA6C", "#EA713D", "#D83E27", "#152B53", "#1F6E8E", "#2C8B98", "#82A8A0"];
+  var username = localStorage.getItem("username");
 
   // fetch courses and bookmarked courses on mount
   useEffect(() => {
@@ -23,7 +25,7 @@ const Home = () => {
       setCourses(obj.Items);
 
       // fetch bookmarked courses
-      const bookmarkResponse = await fetch(`https://v9v2zwoza6.execute-api.us-east-2.amazonaws.com/prod/bookmarks?username=tosrif123`);
+      const bookmarkResponse = await fetch(`https://v9v2zwoza6.execute-api.us-east-2.amazonaws.com/prod/bookmarks?username=${username}`);
       const bookmarks = await bookmarkResponse.json();
       setBookmarkedCourses(bookmarks.map(b => b.courseID));
     }
@@ -39,13 +41,13 @@ const Home = () => {
     //   }
     // }
     // console.log(courses)
-  }, []);
+  }, [username]);
 
 
   // toggle bookmark
   const toggleBookmark = async (course, index) => {
     const bookmark = {
-      username: "tosrif123",
+      username: username,
       courseID: String(index),
       courseName: course.courseName.S,
       description: course.description.S,
@@ -112,6 +114,7 @@ const Home = () => {
                 <p className="course-desc">{course.description.S}</p>
                 <div className="link-price">
                   <p className="price">{"$" + course.price.S}</p>
+                  <Link className="nav-link" to="/coursedetail" state={{ from: course.courseID.S }}>View Course</Link>
                 </div>
               </div>
             </div>

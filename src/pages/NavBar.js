@@ -21,9 +21,11 @@ const NavBar = ({ loggedUsername, setLoggedUsername }) => {
     // Clear username and sessionID from localStorage on logout
     localStorage.removeItem("username");
     localStorage.removeItem("sessionID");
+    localStorage.removeItem("role");
     setIsLoggedIn(false);
     setLoggedUsername("");
   };
+
 
   return (
     <>
@@ -38,14 +40,14 @@ const NavBar = ({ loggedUsername, setLoggedUsername }) => {
               <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/bookmarks">Bookmarks</Link>
+              <Link className="nav-link" to={isLoggedIn? "/bookmarks" : "/login"}>Bookmarks</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
             </li>
             {isLoggedIn && (
               <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profile: {loggedUsername}</Link>
+                <Link className="nav-link" to="/profile">{loggedUsername}'s Profile</Link>
               </li>
             )}
             {!isLoggedIn && (
