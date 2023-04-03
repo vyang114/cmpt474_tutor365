@@ -27,3 +27,20 @@
     width: fit-content;
     border-radius: 10px;
 }
+
+.detail-heading{
+    display: flex;
+    gap: 20px;
+}
+
+.bookmark-detail-pg{
+    border: none;
+    background: none;
+}
+
+.tutor-text{
+    margin-bottom: 25px;
+}
+.enrolled {
+    background-color: gray;
+}
