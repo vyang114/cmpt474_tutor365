@@ -110,6 +110,7 @@ const Home = () => {
       <title>Home</title>
       <div className="wrapper">
         <h1>Courses</h1>
+        <h4>HELLO YASAMAN!!</h4>
         <div className="separator"></div>
         <div className="courses-container">
           {courses.map((course, index) => {
