@@ -2,6 +2,13 @@ import React from "react";
 import "./css/home.css";
 
 const About = () => {
+  const playAudio = () => {
+    let audio = new Audio(`/apple.wav`)
+    // audio.crossOrigin = "anonymous";
+    audio.play()
+    console.log(audio);
+  }
+
   return (
     <>
       <div className="wrapper">
@@ -9,6 +16,7 @@ const About = () => {
         <main className="about">
           <section>
             <h1>About Us</h1>
+            <button onClick={playAudio}>Play audio</button>
             <div className="separator"></div>
             <p>365Tutor is an online tutoring platform that connects students with highly qualified tutors. 
               Our mission is to help students achieve their academic goals by providing personalized, one-on-one tutoring sessions that cater to their unique learning needs.</p>
